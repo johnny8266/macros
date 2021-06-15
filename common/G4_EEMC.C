@@ -101,7 +101,8 @@ void EEMCSetup(PHG4Reco *g4Reco)
   
   if (!G4EEMC::use_projective_geometry)
   {
-    mapping_eemc_1 << "./EEMC_map/tower_map_crystal.txt";
+    mapping_eemc_1 << getenv("CALIBRATIONROOT") << "/CrystalCalorimeter/mapping/crystal_mapping/tower_map_crystal.txt";
+    //   mapping_eemc_1 << "./EEMC_map/tower_map_crystal.txt";
     eemc_crystal->set_string_param("mappingtower", mapping_eemc_1.str());
   }
   eemc_crystal->OverlapCheck(OverlapCheck);
@@ -119,7 +120,8 @@ void EEMCSetup(PHG4Reco *g4Reco)
 
   if (!G4EEMC::use_projective_geometry)
     {
-      mapping_eemc_2 << "./EEMC_map/tower_map_glass.txt";
+      mapping_eemc_2 << getenv("CALIBRATIONROOT") << "/CrystalCalorimeter/mapping/crystal_mapping/tower_map_glass.txt";
+      //      mapping_eemc_2 << "./EEMC_map/tower_map_glass.txt";
       eemc_glass->set_string_param("mappingtower", mapping_eemc_2.str());
     }
   
@@ -141,8 +143,8 @@ void EEMC_Towers()
 
   ostringstream mapping_eemc_1, mapping_eemc_2;
   //  mapping_eemc_1 << getenv("CALIBRATIONROOT") << "/CrystalCalorimeter/mapping/towerMap_EEMC_v006.txt";
-  mapping_eemc_1 << "./EEMC_map/tower_map_crystal.txt";
-  mapping_eemc_2 << "./EEMC_map/tower_map_glass.txt";
+  mapping_eemc_1 << getenv("CALIBRATIONROOT") << "/CrystalCalorimeter/mapping/crystal_mapping/tower_map_crystal.txt";
+  mapping_eemc_2 << getenv("CALIBRATIONROOT") << "/CrystalCalorimeter/mapping/crystal_mapping/tower_map_glass.txt";
 
   // CMS lead tungstate barrel ECAL at 18 degree centrigrade: 4.5 photoelectrons per MeV
   // lead tungsten test in Orsay is 15~20 p.e. per MeV, sci-glass is 5 p.e. per MeV
